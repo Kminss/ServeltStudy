@@ -3,31 +3,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
  ">
 
-    <context:component-scan base-package="spring.di.ui"/>
-    <!--  Exam exam = new NewlecExam();  -->
-    <bean id="exam" class="spring.di.entity.NewlecExam"/>
-   <!-- <util:list list-class="java.util.ArrayList" id="exams">
-        <bean class="spring.di.entity.NewlecExam">
-            <constructor-arg value="10"/>
-            <constructor-arg value="10"/>
-            <constructor-arg value="10"/>
-            <constructor-arg value="10"/>
-        </bean>
-        <ref bean="exam"/>
-    </util:list>-->
-
-    <!-- <bean id="exams" class="java.util.ArrayList">
-        <constructor-arg>
+    <!--<context:component-scan base-package="spring.di.ui"/> -->
+    <bean id="exam" class="spring.aop.entity.NewlecExam">
+        <property name="kor" value="1"/>
+        <property name="eng" value="1"/>
+        <property name="com" value="1"/>
+        <property name="math" value="1"/>
+    </bean>
+    <bean id="LogAroundAdvice" class="spring.aop.advice.LogAroundAdvice"/>
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="target"/>
+        <property name="interceptorNames">
             <list>
-                <bean class="spring.di.entity.NewlecExam">
-                    <constructor-arg value="10"/>
-                    <constructor-arg value="10"/>
-                    <constructor-arg value="10"/>
-                    <constructor-arg value="10"/>
-                </bean>
-                <ref bean="exam"/>
+                <value>LogAroundAdvice</value>
             </list>
-        </constructor-arg>
-    </bean>-->
-
+        </property>
+    </bean>
 </beans>
