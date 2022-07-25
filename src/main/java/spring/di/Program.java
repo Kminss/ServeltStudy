@@ -15,21 +15,12 @@ public class Program {
 
     public static void main(String[] args) {
 		
-		/*Exam exam = (Exam) new NewlecExam();
-		//ExamConsole console = new InlineExamConsole(exam); // DI
-		ExamConsole console = (ExamConsole) new GridExamConsole(exam);
-		*/
         ApplicationContext context = new AnnotationConfigApplicationContext(NewlecAppConfig.class);
-        //ExamConsole console = (ExamConsole) context.getBean("console");
         ExamConsole console = context.getBean(ExamConsole.class);
         console.print();
 
-        //List<Exam> exams = (List<Exam>) context.getBean("exams");
 
-        /*for (Iterator<Exam> iterator = exams.iterator(); iterator.hasNext(); ) {
-            Exam exam = iterator.next();
-            System.out.println(exam);
-        }*/
+
     }
 
 }
