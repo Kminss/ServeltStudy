@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
 
 public class Program {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("setting.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("aopSetting.xml");
         Exam proxy = (Exam) context.getBean("proxy");
 
         /*Exam proxy = (Exam) Proxy.newProxyInstance(NewlecExam.class.getClassLoader(), new Class[]{Exam.class}, new InvocationHandler() {
